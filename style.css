@@ -454,3 +454,70 @@ button.add-btn {
     opacity: 1;
     visibility: visible;
 }
+
+.userName{
+    display: flex;
+    gap: 5px;
+}
+
+
+.material-symbols-outlined{
+    cursor: pointer;
+}
+
+
+.dialogBox{
+    position: relative;
+    left : -21vw;
+    top: -20vh;
+    z-index: 1;
+    border: 2px solid black;
+    
+}
+
+.dialogBox dialog {
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.dialogBox p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dialogBox input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #39a6f0;
+    color: #fff;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
+.buttons button:first-child 1{
+    background-color: #ccc;
+    color: #333;
+}
+
+.buttons button:first-child:hover {
+    background-color: #bbb;
+}
