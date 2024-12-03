@@ -11,6 +11,7 @@
     <meta name="msapplication-TileColor" content="#2d89ef" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=edit" />
     <title>Javascript Todo-list App</title>
     <meta
       name="description"
@@ -44,9 +45,14 @@
           </div>
           <div class="welcome">
             <div class="content">
-              <h1>Hello John</h1>
-              <p>Today you have <span id="total-tasks">5</span> tasks</p>
-            </div>
+              <div class="userName"> 
+               <h1>Hello John</h1> 
+               <span class="material-symbols-outlined">
+               edit
+               </span>
+             </div>
+               <p>Today you have <span id="total-tasks">5</span> tasks</p>
+             </div>
             <div class="img">
               <div class="backdrop"></div>
               <img src="images/boy.png" alt="" />
@@ -204,7 +210,15 @@
         </div>
       </div>
     </div>
-
+    <div class="dialogBox">
+      <dialog>
+        <p>Enter Your Name</p> <input type="text">
+        <div class="buttons">
+          <button class = "cancelButton">Cancel</button>
+          <button class = "submitButton">Submit</button>
+        </div>
+      </dialog>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
