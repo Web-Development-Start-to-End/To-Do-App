@@ -407,3 +407,23 @@ categories.forEach((category) => {
   option.textContent = category.title;
   categorySelect.appendChild(option);
 });
+
+
+document.querySelector(".material-symbols-outlined").addEventListener("click",()=>{
+  document.querySelector(".dialogBox dialog").open = open;
+})
+
+
+document.querySelector(".cancelButton").addEventListener("click",()=>{
+  document.querySelector(".dialogBox dialog").open = false;
+})
+
+document.querySelector(".submitButton").addEventListener("click",()=>{
+  let value = document.querySelector(".dialogBox dialog input").value
+  document.querySelector(".dialogBox dialog input").value = ""
+  document.querySelector(".dialogBox dialog").open = false;
+
+  if(value){
+    document.querySelector(".userName h1").innerHTML = value
+  }
+})
