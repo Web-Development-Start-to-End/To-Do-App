@@ -144,6 +144,7 @@ body {
 .category:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px 5px #00000040;
+    background-color: rgb(58, 159, 193);
 }
 
 .category .left {
@@ -461,13 +462,18 @@ button.add-btn {
 }
 
 
-.material-symbols-outlined{
+.material-symbols-outlined:hover{
     cursor: pointer;
+    font-size: 200%;
+    position: relative;
+    top:-1vh;
+    box-sizing: content-box;
 }
 
 
 .dialogBox{
     position: relative;
+    text-align: center ;
     left : -21vw;
     top: -20vh;
     z-index: 1;
@@ -520,4 +526,20 @@ button.add-btn {
 
 .buttons button:first-child:hover {
     background-color: #bbb;
+}
+
+
+
+.inputProfileImage{
+    display: none;
+}
+
+.profileImage{
+    border-radius:40px;
+    height: 10vh;
+    object-fit: cover;
+}
+
+.flex{
+    display: flex;
 }
