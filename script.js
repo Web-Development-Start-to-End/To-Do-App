@@ -427,3 +427,26 @@ document.querySelector(".submitButton").addEventListener("click",()=>{
     document.querySelector(".userName h1").innerHTML = value
   }
 })
+
+document.querySelector("#changeProfileBTN").addEventListener("click",function (e) {
+
+document.querySelector(".inputProfileImage").click()
+})
+
+
+// Event listener for the file input change event
+document.querySelector(".inputProfileImage").addEventListener("change", function() {
+  if (this.files.length > 0) {
+    // If a file is selected
+    const file = this.files[0];
+    
+    // Create a temporary URL for the file
+    const objectURL = URL.createObjectURL(file);
+    
+    // Set the src of the image element to the temporary URL
+    document.querySelector(".profileImage").src = objectURL;
+  }
+});
+
+
+
