@@ -425,6 +425,11 @@ document.querySelector(".submitButton").addEventListener("click",()=>{
 
   if(value){
     document.querySelector(".userName h1").innerHTML = value
+    let userName = localStorage.getItem('username')
+    let passWord = localStorage.getItem('password')
+    localStorage.setItem('username',String(value))
+    localStorage.setItem('password', String(passWord))
+
   }
 })
 
@@ -564,3 +569,6 @@ if (localStorage.getItem('username') && localStorage.getItem('password')) {
     // If user is not logged in, show the login dialog
     loginOverlay.style.display = 'flex';
 }
+
+
+
