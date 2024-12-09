@@ -548,6 +548,10 @@ document.querySelector(".signup").addEventListener('click', function (event) {
         alert('Passwords do not match!');
         return;
     }
+    else if ((enteredSignupPassword == "") || (enteredConfirmPassword == "") || (enteredSignupUsername == "") {
+        alert('All fields are mandatory!');
+        return;
+  }
 
     // Store username and password in localStorage
     localStorage.setItem('username', enteredSignupUsername);
