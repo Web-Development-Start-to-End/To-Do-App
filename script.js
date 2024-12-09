@@ -450,3 +450,117 @@ document.querySelector(".inputProfileImage").addEventListener("change", function
 
 
 
+// Get references to both the login and signup overlays
+const loginOverlay = document.getElementById('login-overlay');
+const signupOverlay = document.getElementById('signup-overlay');
+
+// Get references to the links for switching between dialogs
+const toSignupLink = document.getElementById('to-signup');
+const toLoginLink = document.getElementById('to-login');
+
+// Show signup dialog and hide login dialog when "Sign Up" is clicked
+toSignupLink.addEventListener('click', function() {
+    loginOverlay.style.display = 'none'; // Hide login dialog
+    signupOverlay.style.display = 'flex'; // Show signup dialog
+});
+
+// Show login dialog and hide signup dialog when "Login" is clicked
+toLoginLink.addEventListener('click', function() {
+    signupOverlay.style.display = 'none'; // Hide signup dialog
+    loginOverlay.style.display = 'flex'; // Show login dialog
+});
+
+// Initially display the login dialog (default)
+loginOverlay.style.display = 'flex';
+
+
+
+// Get the login and signup form elements
+const loginForm = loginOverlay.querySelector('form');
+const signupForm = signupOverlay.querySelector('form');
+
+// Get the input fields for username and password
+const usernameInput = loginOverlay.querySelector('#username');
+const passwordInput = loginOverlay.querySelector('#password');
+const signupUsernameInput = signupOverlay.querySelector('#signup-username');
+const signupPasswordInput = signupOverlay.querySelector('#signup-password');
+const confirmPasswordInput = signupOverlay.querySelector('#confirm-password');
+
+// Event listener for switching to signup dialog
+toSignupLink.addEventListener('click', () => {
+    loginOverlay.style.display = 'none';
+    signupOverlay.style.display = 'flex';
+});
+
+// Event listener for switching to login dialog
+toLoginLink.addEventListener('click', () => {
+    signupOverlay.style.display = 'none';
+    loginOverlay.style.display = 'flex';
+});
+
+// Handle the login form submission
+loginForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const enteredUsername = usernameInput.value;
+    const enteredPassword = passwordInput.value;
+
+    // Check if the username and password are stored in localStorage
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+
+    if (storedUsername && storedPassword) {
+        if (enteredUsername === storedUsername && enteredPassword === storedPassword) {
+            // Successfully logged in, assign the values and close the dialog
+            const username = enteredUsername;
+            const password = enteredPassword;
+            console.log('Logged in as:', username);
+
+            // Close the login dialog
+            loginOverlay.style.display = 'none';
+            document.querySelector(".userName h1").innerHTML = username
+        } else {
+            alert('Invalid username or password');
+        }
+    } else {
+        // If no user data exists, handle it by creating a new user
+        alert('No account found. Please sign up first.');
+        loginOverlay.style.display = 'none';
+        signupOverlay.style.display = 'flex';
+    }
+});
+
+// Handle the signup form submission
+document.querySelector(".signup").addEventListener('click', function (event) {
+   
+  event.preventDefault();
+    const enteredSignupUsername = signupUsernameInput.value;
+    const enteredSignupPassword = signupPasswordInput.value;
+    const enteredConfirmPassword = confirmPasswordInput.value;
+
+    // Check if passwords match
+    if (enteredSignupPassword !== enteredConfirmPassword) {
+        alert('Passwords do not match!');
+        return;
+    }
+
+    // Store username and password in localStorage
+    localStorage.setItem('username', enteredSignupUsername);
+    localStorage.setItem('password', enteredSignupPassword);
+
+    // After successful signup, close the signup dialog
+    signupOverlay.style.display = 'none';
+    console.log('Account created for:', enteredSignupUsername);
+    document.querySelector(".userName h1").innerHTML = enteredSignupUsername
+});
+
+// Initial check to display the appropriate dialog
+if (localStorage.getItem('username') && localStorage.getItem('password')) {
+    // If user is already logged in, automatically close the login dialog
+    loginOverlay.style.display = 'none';
+    
+    document.querySelector(".userName h1").innerHTML = localStorage.getItem('username')
+} else {
+    // If user is not logged in, show the login dialog
+    loginOverlay.style.display = 'flex';
+}
